@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>の拓</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, 'Noto Sans JP', sans-serif;
+      background: #f6f7fb;
+      color: #222;
+      min-width: 300px;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: #F8F8F4;
+      box-shadow: 0 2px 16px 0 rgba(40, 60, 80, 0.09);
+      border-radius: 18px;
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      width: 95%;
+      max-width: 340px;
+      text-align: center;
+      margin: 1.3rem 0 0 0;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #2d353c;
+    }
+
+    .description {
+      color: #6c7a89;
+      font-size: 0.96rem;
+      margin-bottom: 1.1rem;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      font-size: 0.93rem;
+      margin-bottom: 0.25rem;
+      margin-top: 0.9rem;
+      color: #3c4c5c;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      font-size: 1rem;
+      border: 1px solid #d1dae8;
+      border-radius: 8px;
+      padding: 0.55em 0.9em;
+      margin-bottom: 0.2em;
+      background: #f7faff;
+      transition: border .14s;
+      box-sizing: border-box;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      border: 1.3px solid #4b94ee;
+      outline: none;
+      background: #F8F8F4;
+    }
+
+    #saveBtn {
+      appearance: none;
+      background: linear-gradient(90deg, #2f80ed 0, #56ccf2 100%);
+      color: #F8F8F4;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      padding: 0.7rem 2.2rem;
+      font-size: 1.09rem;
+      box-shadow: 0 2px 8px 0 rgba(44, 104, 214, 0.10);
+      transition: background 0.16s, transform 0.09s;
+      cursor: pointer;
+    }
+
+    #saveBtn:active {
+      transform: scale(0.98);
+      background: linear-gradient(90deg, #2f80ed 10%, #56ccf2 90%);
+    }
+
+    #status {
+      margin-top: 1.2rem;
+      min-height: 1.2em;
+      font-size: 0.98rem;
+      color: #1a1a1a;
+    }
+
+    .notion-logo {
+      margin-bottom: 0.8rem;
+      width: 38px;
+      height: 38px;
+      background: #F8F8F4;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 4px 0 rgba(50, 60, 90, 0.07);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .notion-logo img {
+      width: 100px;
+      height: 100px;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="notion-logo">
+      <img src="icons/icon128.png" alt="Notion logo" />
+    </div>
+    <h3>Notionに魚拓</h3>
+    <div class="description" id="startupMessage">最初にNotionの情報を入力して保存してください（ローカル保存されます）</div>
+    <form id="configForm">
+      <label for="notionToken">Notion Token（シークレット）</label>
+      <input type="password" id="notionToken" required autocomplete="off">
+
+      <label for="notionDatabaseId">Database ID</label>
+      <input type="text" id="notionDatabaseId" required autocomplete="off">
+
+      <label for="openaiApiKey">OpenAI APIキー</label>
+      <input type="password" id="openaiApiKey" required autocomplete="off">
+
+      <button type="submit" style="margin-top:0.9rem;">設定を保存</button>
+    </form>
+    <div class="description">今見ているページをNotionに保存します</div>
+    <button id="saveBtn">Notionに保存</button>
+    <p><button type="button" id="resetBtn" style="display: none;">設定リセット</button></p>
+    <div id="status"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
+</html>
