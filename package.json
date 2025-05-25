@@ -1,0 +1,20 @@
+{
+  "name": "notaku",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build && cp public/popup.html build/ && cp manifest.json build/ && cp -R icons build/",
+    "build_vite": "vite build && cp -R public/* build/",
+    "build_old": "tsc && cp public/popup.html build/ && cp dist/popup.js build/ && cp manifest.json build/ && cp -R icons build/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/chrome": "^0.0.323",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  }
+}
