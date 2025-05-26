@@ -34,8 +34,5 @@ pnpm-debug.log*
 # Typescript
 *.tsbuildinfo
 
-# Mac: resource fork files
-Icon?
-
 # test coverage
 coverage/
